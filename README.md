@@ -67,9 +67,51 @@ Dalam analisis kali ini, saya menggunakan tabel yang berada pada file `fire_arch
 - daynight: Siang (D) atau Malam (N)
 - type: tipe titik panas yang diinferensi, 0 = wilayah vegetasi, 1 = gunung aktif, 2 = lahan statis, 3 = lepas pantai
 
-Lisensi dapat dilihat pada bagian referensi[^3][^4].
+### Explanatory Data Analysis (EDA)
+
+Untuk dapat memahami data maka dilakukan proses EDA. EDA adalah sebuah proses untuk mengenali dan mencari pola pada dataset yang digunakan, proses ini dapat mendeteksi kesalahan sebelum nantinya akan dilakuan proses selanjutnya. EDA menggunakan teknik statistika dan visualisasi agar memudahkan pencarian pola pada dataset. Tidak hanya itu, hubungan data juga dapat dilakukan dengan proses ini.
+
+EDA memiliki beberapa tujuan antara lain:
+
+1. Memahami Data
+   Ketika memahami data, kita dapat melihat karakteristik datasetnya. Mulai dari struktur data seperti tipe data, jumlah baris dan kolom, distribusi data, data yang hilang (*missing values*), outlier, hubungan antar data, dll.
+
+2. Identifikasi Anomali
+   Tahap ini mengidentifikasi nilai-nilai yang tidak wajar dalam data dengan metode pengecekan data.
+
+3. Identifikasi Pola dan Tren
+   Teknik visualisasi dapat membantu pada tahap identifikasi pola dan tren. Visualisasi disesuaikan dengan data atau dengan menampilkan pola atau tren apa yang ingin disampaikan.
+
+4. Eksplorasi Hubungan
+   Tahapan ini melihat hubungan antar variabel melalui visualisasi, eksplorasi ini juga menentukan variabel apa yang penting dan tidak penting dalam output.
+
+Proses EDA dibagi menjadi 2 yaitu Univariate Analysis dan Multivariate Analysis.
+Pada Analisis Univariat data yang dianalisis hanya merepresentasikan informasi yang terdapat pada masing-masing variabel. Jenis visualisasi ini umumnya memberikan gambaran terkait distribusi sebuah variabel dalam suatu dataset. Metode statistika yang digunakan pada analisis univariat antara lain:
+
+- Measure of Central Tendency: mean, median, modus
+- Measure of Spread: variabilitas, varian, standar deviasi
+- Measure of Distribution: skewness dan kurtosis.
+
+Plot visualisasi yang dapat digunakan pada analisis univariat antara lain:
+
+- Box plot -> menggambarkan ringkasan lima angka minimum, kuartil pertama, median, kuartil ketiga, dan maksimum.
+- Histogram -> setiap plot yang mewakili frekuensi (hitungan) atau proporsi (hitungan/jumlah total) kasus untuk rentang nilai.
+
+Sedangkan pada Analisis Multivariat data yang dianalisis terdapat lebih dari dua variabel yang visualisasinya digunakan untuk merepresentasikan hubungan dan pola dari masing-masing data. Metode yang digunakan untuk analisis multivariat inia adalah correlation. Dengan visualisasi seperti:
+
+- Box plot
+- Bar chart
+- Bar plot
+- Heatmap
+- Bubblechart
+
+Berikut ini adalah hasil explanatory.
 
 ## Data Preparation
+
+Proses ini mempersiapkan data untuk dapat mengembangkan model yang baik. Kegiatan yang dilakukan meliputi *Data Gathering*, *Data Assessing* dan *Data Cleaning*. Pada proses data gathering, data diimpor dan di-*convert* menjadi tabel DataFrame menggunakan fungsi `read_csv()`. Untuk proses *Data Assessing* kita akan melakukan pemeriksaan apakah data terdapat duplikasi (*Duplicate Checking*), Data yang kosong atau *null* (*Null Checking*), dan pengecekan distribusi data yang menyimpang (*Outliers Checking*). Jika terdapat hal-hal yang tidak sesuai maka dilakuan proses *Data Cleaning* yang meliputi proses membuang data (*Data Dropping*), Mengisi nilai yang null (*Imputation*), dan Interpolasi atau menghasilkan titik-titik data baru dalam suatu jangkauan dari suatu data.
+
+Dataset yang diimpor tidak terdapat duplikasi.
 
 ## Modeling
 
@@ -135,5 +177,3 @@ Dapat dilihat dari keempat model yang digunakan dapat disimpulkan model random f
 
 [^1]: D. F. Pramesti, M. T. Furqon, dan C. Dewi, “Implementasi Metode K-Medoids Clustering Untuk Pengelompokan Data Potensi Kebakaran Hutan/Lahan Berdasarkan Persebaran Titik Panas (Hotspot)”, J-PTIIK, vol. 1, no. 9, hlm. 723–732, Jun 2017.
 [^2]: Cortez,Paulo and Morais,Anbal. (2008). Forest Fires. UCI Machine Learning Repository. <https://doi.org/10.24432/C5D88D>.
-[^3]: NRT VIIRS 375 m Active Fire product VNP14IMGT. Available on-line [https://earthdata.nasa.gov/firms]. doi: <https://doi.org/10.5067/FIRMS/VIIRS/VNP14IMGT.NRT.001>.
-[^4]: MODIS Collection 6 NRT Hotspot / Active Fire Detections MCD14DL. Available on-line [https://earthdata.nasa.gov/firms]. doi: <https://doi.org/10.5067/FIRMS/MODIS/MCD14DL.NRT.006>
